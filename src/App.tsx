@@ -1533,153 +1533,98 @@ export default function PortfolioWebsite() {
               </div>
             </div>
 
-            <div className="grid gap-7">
-              {t.aiAgent.projects.map((agent) => (
-                <motion.article
-                  key={agent.title}
-                  initial={{ opacity: 0, y: 22 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.45 }}
-                  className="relative overflow-hidden rounded-sm border border-stone-300 bg-[#eee7dd] p-6"
+<div className="mt-8 space-y-5">
+  {t.aiAgent.projects.map((agent, index) => (
+    <details
+      key={agent.title}
+      className="group rounded-sm border border-stone-300 bg-[#eee7dd] p-6 shadow-sm"
+    >
+      <summary className="flex cursor-pointer list-none items-center justify-between gap-6">
+        <div>
+          <p className="mb-2 text-xs font-semibold uppercase tracking-[0.22em] text-[#e46aa3]">
+            {isZh ? `AI 智能体 0${index + 1}` : `AI Agent 0${index + 1}`}
+          </p>
+
+          <h3 className="text-3xl font-black uppercase leading-[0.92] tracking-[-0.05em] text-stone-900 md:text-4xl">
+            {agent.title}
+          </h3>
+
+          <p className="mt-2 text-sm font-semibold text-[#e46aa3]">
+            {agent.subtitle}
+          </p>
+
+          <p className="mt-3 max-w-3xl text-sm leading-6 text-stone-600">
+            {agent.description}
+          </p>
+        </div>
+
+        <span className="shrink-0 rounded-full border border-stone-400 px-4 py-2 text-sm uppercase tracking-[0.16em] text-stone-700 transition group-open:bg-[#ef75ad] group-open:text-white">
+          {isZh ? "点击展开" : "Open"}
+        </span>
+      </summary>
+
+      <div className="mt-8 border-t border-stone-300 pt-7">
+        <div className="grid gap-8 lg:grid-cols-[0.95fr_1.05fr]">
+          <div>
+            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-stone-500">
+              {isZh ? "工作流程" : "Workflow"}
+            </p>
+
+            <div className="space-y-3">
+              {agent.workflow.map((step) => (
+                <p
+                  key={step}
+                  className="border-l border-stone-400 pl-4 text-sm leading-6 text-stone-700"
                 >
-                  <div className="absolute -right-6 -top-8 font-['Brush_Script_MT'] text-8xl text-[#ef75ad]/60">
-                    {agent.no}
-                  </div>
-
-                  <div className="relative z-10">
-                    <div className="mb-4 flex flex-wrap items-center gap-2">
-                      <span className="rounded-full bg-[#f7d6e5] px-3 py-1 text-xs uppercase tracking-[0.16em] text-stone-700">
-                        AI Agent
-                      </span>
-
-                      <span className="text-xs uppercase tracking-[0.16em] text-stone-500">
-                        Workflow
-                      </span>
-                    </div>
-
-                    <h3 className="text-3xl font-black uppercase leading-[0.9] tracking-[-0.05em] md:text-4xl">
-                      {agent.title}
-                    </h3>
-
-                    <p className="mt-2 text-sm font-semibold text-[#e46aa3]">
-                      {agent.subtitle}
-                    </p>
-
-                    <p className="mt-4 leading-7 text-stone-700">
-                      {agent.description}
-                    </p>
-
-                    <div className="mt-6">
-                      <p className="mb-3 text-xs uppercase tracking-[0.18em] text-stone-500">
-                        Workflow
-                      </p>
-
-                      <ul className="space-y-2 text-sm leading-6 text-stone-700">
-                        {agent.workflow.map((step) => (
-                          <li
-                            key={step}
-                            className="border-l border-stone-400 pl-3"
-                          >
-                            {step}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-
-                    <div className="mt-6 flex flex-wrap gap-2">
-                      {agent.skills.map((skill) => (
-                        <span
-                          key={skill}
-                          className="rounded-full border border-stone-400 bg-white/40 px-3 py-1 text-sm"
-                        >
-                          {skill}
-                        </span>
-                      ))}
-                    </div>
-
-                    <div className="mt-6">
-                      <p className="mb-3 text-xs uppercase tracking-[0.18em] text-stone-500">
-                        Evidence Screenshots
-                      </p>
-
-                      <div className="grid gap-4">
-                        {agent.screenshots?.[0] && (
-                          <a
-                            href={agent.screenshots[0].src}
-                            target="_blank"
-                            rel="noreferrer"
-                            className="group block overflow-hidden rounded-sm border border-stone-300 bg-[#f6f0e6] transition hover:-translate-y-1 hover:shadow-lg"
-                          >
-                            <div className="aspect-video w-full bg-[#eee7dd] p-3">
-                              <img
-                                src={agent.screenshots[0].src}
-                                alt={agent.screenshots[0].label}
-                                className="h-full w-full rounded-sm object-contain"
-                              />
-                            </div>
-
-                            <div className="border-t border-stone-300 px-4 py-3">
-                              <p className="text-xs font-semibold uppercase tracking-[0.14em] text-stone-600">
-                                {agent.screenshots[0].label}
-                              </p>
-                            </div>
-                          </a>
-                        )}
-
-                        <div className="grid gap-4 lg:grid-cols-[0.75fr_1.25fr]">
-                          {agent.screenshots?.[1] && (
-                            <a
-                              href={agent.screenshots[1].src}
-                              target="_blank"
-                              rel="noreferrer"
-                              className="group block overflow-hidden rounded-sm border border-stone-300 bg-[#f6f0e6] transition hover:-translate-y-1 hover:shadow-lg"
-                            >
-                              <div className="aspect-[3/4] w-full bg-[#eee7dd] p-3">
-                                <img
-                                  src={agent.screenshots[1].src}
-                                  alt={agent.screenshots[1].label}
-                                  className="h-full w-full rounded-sm object-contain"
-                                />
-                              </div>
-
-                              <div className="border-t border-stone-300 px-4 py-3">
-                                <p className="text-xs font-semibold uppercase tracking-[0.14em] text-stone-600">
-                                  {agent.screenshots[1].label}
-                                </p>
-                              </div>
-                            </a>
-                          )}
-
-                          {agent.screenshots?.[2] && (
-                            <a
-                              href={agent.screenshots[2].src}
-                              target="_blank"
-                              rel="noreferrer"
-                              className="group block overflow-hidden rounded-sm border border-stone-300 bg-[#f6f0e6] transition hover:-translate-y-1 hover:shadow-lg"
-                            >
-                              <div className="aspect-[4/3] w-full bg-[#eee7dd] p-3">
-                                <img
-                                  src={agent.screenshots[2].src}
-                                  alt={agent.screenshots[2].label}
-                                  className="h-full w-full rounded-sm object-contain"
-                                />
-                              </div>
-
-                              <div className="border-t border-stone-300 px-4 py-3">
-                                <p className="text-xs font-semibold uppercase tracking-[0.14em] text-stone-600">
-                                  {agent.screenshots[2].label}
-                                </p>
-                              </div>
-                            </a>
-                          )}
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </motion.article>
+                  {step}
+                </p>
               ))}
             </div>
+
+            <p className="mb-3 mt-7 text-xs font-semibold uppercase tracking-[0.18em] text-stone-500">
+              {isZh ? "体现能力" : "Skills Demonstrated"}
+            </p>
+
+            <div className="flex flex-wrap gap-2">
+              {agent.skills.map((skill) => (
+                <span
+                  key={skill}
+                  className="rounded-full border border-stone-300 bg-white/70 px-3 py-1 text-sm text-stone-700"
+                >
+                  {skill}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          <div className="grid gap-4 md:grid-cols-3">
+            {agent.screenshots.map((shot) => (
+              <a
+                key={shot.src}
+                href={shot.src}
+                target="_blank"
+                rel="noreferrer"
+                className="overflow-hidden rounded-sm border border-stone-300 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-md"
+              >
+                <div className="aspect-[3/4] overflow-hidden bg-stone-200">
+                  <img
+                    src={shot.src}
+                    alt={shot.label}
+                    className="h-full w-full object-cover"
+                  />
+                </div>
+
+                <p className="p-3 text-xs font-semibold uppercase tracking-[0.14em] text-stone-500">
+                  {shot.label}
+                </p>
+              </a>
+            ))}
+          </div>
+        </div>
+      </div>
+    </details>
+  ))}
+</div>
           </PaperCard>
         </section>
         <section id="video" className="mt-14">
