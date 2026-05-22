@@ -1398,8 +1398,11 @@ export default function PortfolioWebsite() {
             {t.skillsTitle}
           </h2>
           <div className="mt-5 flex flex-nowrap gap-5 overflow-x-scroll overflow-y-hidden pb-8">
-            {t.skills.map(([no, title, subtitle, proof, projects]) => (
-             className="min-w-[85vw] max-w-[85vw] sm:min-w-[520px] sm:max-w-[520px] shrink-0 p-5 transition hover:-translate-y-1"
+           {t.skills.map(([no, title, subtitle, proof, projects]) => (
+  <PaperCard
+    key={no}
+    className="min-w-[85vw] max-w-[85vw] sm:min-w-[520px] sm:max-w-[520px] shrink-0 p-5 transition hover:-translate-y-1"
+  >
                 <span className="font-['Brush_Script_MT'] text-5xl text-[#e46aa3]">
                   {no}
                 </span>
