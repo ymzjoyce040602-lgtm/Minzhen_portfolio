@@ -1513,7 +1513,7 @@ export default function PortfolioWebsite() {
             </div>
           </PaperCard>
         </section>
-        <section id="crm-case" className="mt-14">
+       <section id="crm-case" className="mt-14">
   <PaperCard className="overflow-hidden p-7 md:p-10">
     <div className="mb-10 border-b border-stone-300 pb-7">
       <p className="mb-3 text-xs font-semibold uppercase tracking-[0.22em] text-[#e46aa3]">
@@ -1568,9 +1568,10 @@ export default function PortfolioWebsite() {
           key={item.label}
           className="rounded-sm border border-stone-300 bg-white/60 p-5"
         >
-  <p className="text-5xl md:text-6xl font-black italic tracking-tight leading-none text-[#e46aa3]">
-  {item.number}
-</p>
+          <p className="text-5xl font-black italic leading-none tracking-tight text-[#e46aa3] md:text-6xl">
+            {item.number}
+          </p>
+
           <h3 className="mt-4 text-xl font-black uppercase leading-none tracking-[-0.04em] text-stone-900">
             {item.label}
           </h3>
@@ -1582,175 +1583,194 @@ export default function PortfolioWebsite() {
       ))}
     </div>
 
-    <div className="mt-10 grid gap-8 lg:grid-cols-[0.95fr_1.05fr]">
-      <div>
-        <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-[#e46aa3]">
-          {isZh ? "研究流程" : "Research Process"}
-        </p>
-
-        <div className="space-y-4">
-          {[
-            isZh
-              ? "用户研究：访谈学生与教职工顾客，识别他们对口味、健康、分量、价格和服务体验的真实感知。"
-              : "Customer Research: Interviewed student and faculty customers to understand their perceptions of taste, health, portion size, price and service experience.",
-            isZh
-              ? "管理者研究：分析店主管理理念、服务策略、顾客互动方式和当前 CRM 实践。"
-              : "Managerial Research: Analyzed the owners’ service philosophy, customer interaction style and current CRM practices.",
-            isZh
-              ? "线上评论分析：通过 OCR 工具收集并整理外卖平台评论，补充线下访谈样本。"
-              : "Online Review Analysis: Used OCR tools to collect and organize takeaway-platform comments as supplementary customer data.",
-            isZh
-              ? "CRM 诊断：比较顾客感知与管理者意图，识别客户分层、反馈闭环、渠道沟通和绩效评估中的问题。"
-              : "CRM Diagnosis: Compared customer perceptions with managerial intentions to identify gaps in segmentation, feedback loops, channel communication and performance tracking.",
-          ].map((step, index) => (
-            <div
-              key={step}
-              className="flex gap-4 border-l border-stone-400 pl-4"
-            >
-              <span className="font-['Brush_Script_MT'] text-3xl leading-none text-[#e46aa3]">
-                0{index + 1}
-              </span>
-              <p className="text-sm leading-7 text-stone-700">{step}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      <div>
-        <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-[#e46aa3]">
-          {isZh ? "核心发现" : "Key Findings"}
-        </p>
-
-        <div className="space-y-4">
-          {[
-            {
-              title: isZh
-                ? "强个性化服务，但缺少系统化 CRM"
-                : "Strong personalized service, but weak systematic CRM",
-              text: isZh
-                ? "缥雪依赖店主个人记忆和直接互动建立温暖体验，但这种“人脑数据库”难以规模化。"
-                : "Piaoxue relies on owners’ personal memory and direct interaction to create warmth, but this informal “human-brain database” is difficult to scale.",
-            },
-            {
-              title: isZh
-                ? "顾客需求多元，但客户分层不够清晰"
-                : "Diverse customer needs, but informal segmentation",
-              text: isZh
-                ? "不同顾客对健康、口味、分量、价格和新鲜感的期待不同，但品牌尚未形成明确的客户分层策略。"
-                : "Customers have different expectations for health, taste, portion size, price and novelty, but the brand has not built a clear segmentation strategy.",
-            },
-            {
-              title: isZh
-                ? "有反馈来源，但缺少反馈闭环"
-                : "Feedback exists, but lacks a closed-loop mechanism",
-              text: isZh
-                ? "线上评论和直接反馈能够反映问题，但尚未被稳定转化为产品、服务和沟通策略的持续优化。"
-                : "Online reviews and direct feedback reveal customer problems, but they are not consistently translated into product, service and communication improvements.",
-            },
-          ].map((finding) => (
-            <div
-              key={finding.title}
-              className="rounded-sm border border-stone-300 bg-white/60 p-5"
-            >
-              <h3 className="text-xl font-black leading-tight tracking-[-0.03em] text-stone-900">
-                {finding.title}
-              </h3>
-              <p className="mt-3 text-sm leading-7 text-stone-700">
-                {finding.text}
-              </p>
-            </div>
-          ))}
-        </div>
-      </div>
-    </div>
-
-    <div className="mt-10 rounded-sm border border-stone-300 bg-[#f8f4ee] p-6">
-      <p className="mb-4 text-xs font-semibold uppercase tracking-[0.18em] text-[#e46aa3]">
-        {isZh ? "优化建议" : "Recommendations"}
-      </p>
-
-      <div className="grid gap-4 md:grid-cols-2">
-        {[
-          isZh
-            ? "建立“反馈—行动—沟通”机制：收集顾客反馈后，将其转化为菜单、服务和沟通优化，并向顾客传达改进。"
-            : "Build a feedback-action-communication loop: collect customer feedback, translate it into service or product improvements, and communicate changes back to customers.",
-          isZh
-            ? "优化客户分层：区分忠诚顾客、短期高价值顾客、不满意顾客和偶发顾客，制定差异化维护策略。"
-            : "Refine customer segmentation: distinguish loyal customers, short-term profitable customers, dissatisfied users and occasional customers for targeted CRM actions.",
-          isZh
-            ? "系统化客户信息管理：从依赖个人记忆转向记录顾客偏好、投诉、复购行为和特殊需求。"
-            : "Standardize customer information management: move from personal memory to structured records of preferences, complaints, repeat-purchase behavior and special requests.",
-          isZh
-            ? "建立 CRM 绩效指标：追踪满意度、复购率、推荐意愿、投诉解决率和渠道反馈表现。"
-            : "Define CRM performance metrics: track satisfaction, repeat purchase, recommendation intention, complaint resolution and channel feedback performance.",
-        ].map((rec) => (
-          <p
-            key={rec}
-            className="border-l border-stone-400 pl-4 text-sm leading-7 text-stone-700"
-          >
-            {rec}
+    <details className="group mt-10 rounded-sm border border-stone-300 bg-white/40 p-6">
+      <summary className="flex cursor-pointer list-none items-center justify-between gap-6">
+        <div>
+          <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[#e46aa3]">
+            {isZh ? "完整案例分析" : "Full Case Analysis"}
           </p>
-        ))}
-      </div>
-    </div>
 
-    <div className="mt-10">
-      <p className="mb-4 text-xs font-semibold uppercase tracking-[0.18em] text-[#e46aa3]">
-        {isZh ? "项目截图" : "Visual Evidence"}
-      </p>
+          <h3 className="mt-2 text-3xl font-black uppercase leading-[0.95] tracking-[-0.05em] text-stone-900 md:text-4xl">
+            {isZh ? "查看研究流程、核心发现与优化建议" : "View Research Process, Findings & Recommendations"}
+          </h3>
+        </div>
 
-     <div className="mx-auto grid max-w-5xl gap-6 md:grid-cols-2">
-        {[
-          {
-            src: "/images/piaoxue-swot-stp.png",
-            label: isZh ? "SWOT / STP 分析" : "SWOT / STP Analysis",
-          },
-          {
-            src: "/images/piaoxue-customer-types.png",
-            label: isZh ? "客户类型分析" : "Customer Type Analysis",
-          },
-      
-        ].map((image) => (
-          <a
-            key={image.src}
-            href={image.src}
-            target="_blank"
-            rel="noreferrer"
-            className="overflow-hidden rounded-sm border border-stone-300 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-md"
-          >
-            <div className="aspect-[4/3] overflow-hidden bg-stone-200">
-              <img
-                src={image.src}
-                alt={image.label}
-                className="h-full w-full object-cover"
-              />
-            </div>
-
-            <p className="p-3 text-xs font-semibold uppercase tracking-[0.14em] text-stone-500">
-              {image.label}
-            </p>
-          </a>
-        ))}
-      </div>
-    </div>
-
-    <div className="mt-8 flex flex-wrap gap-2">
-      {[
-        "User Research",
-        "CRM Analysis",
-        "Customer Segmentation",
-        "Online Review Mining",
-        "SWOT / STP",
-        "Strategy Recommendation",
-      ].map((tag) => (
-        <span
-          key={tag}
-          className="rounded-full border border-stone-300 bg-white/70 px-3 py-1 text-sm text-stone-700"
-        >
-          {tag}
+        <span className="shrink-0 rounded-full border border-stone-400 px-4 py-2 text-sm uppercase tracking-[0.16em] text-stone-700 transition group-open:bg-[#ef75ad] group-open:text-white">
+          {isZh ? "点击展开" : "Open"}
         </span>
-      ))}
-    </div>
+      </summary>
+
+      <div className="mt-8 border-t border-stone-300 pt-8">
+        <div className="grid gap-8 lg:grid-cols-[0.95fr_1.05fr]">
+          <div>
+            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-[#e46aa3]">
+              {isZh ? "研究流程" : "Research Process"}
+            </p>
+
+            <div className="space-y-4">
+              {[
+                isZh
+                  ? "用户研究：访谈学生与教职工顾客，识别他们对口味、健康、分量、价格和服务体验的真实感知。"
+                  : "Customer Research: Interviewed student and faculty customers to understand their perceptions of taste, health, portion size, price and service experience.",
+                isZh
+                  ? "管理者研究：分析店主管理理念、服务策略、顾客互动方式和当前 CRM 实践。"
+                  : "Managerial Research: Analyzed the owners’ service philosophy, customer interaction style and current CRM practices.",
+                isZh
+                  ? "线上评论分析：通过 OCR 工具收集并整理外卖平台评论，补充线下访谈样本。"
+                  : "Online Review Analysis: Used OCR tools to collect and organize takeaway-platform comments as supplementary customer data.",
+                isZh
+                  ? "CRM 诊断：比较顾客感知与管理者意图，识别客户分层、反馈闭环、渠道沟通和绩效评估中的问题。"
+                  : "CRM Diagnosis: Compared customer perceptions with managerial intentions to identify gaps in segmentation, feedback loops, channel communication and performance tracking.",
+              ].map((step, index) => (
+                <div
+                  key={step}
+                  className="flex gap-4 border-l border-stone-400 pl-4"
+                >
+                  <span className="text-2xl font-black italic leading-none text-[#e46aa3]">
+                    0{index + 1}
+                  </span>
+                  <p className="text-sm leading-7 text-stone-700">{step}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div>
+            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-[#e46aa3]">
+              {isZh ? "核心发现" : "Key Findings"}
+            </p>
+
+            <div className="space-y-4">
+              {[
+                {
+                  title: isZh
+                    ? "强个性化服务，但缺少系统化 CRM"
+                    : "Strong personalized service, but weak systematic CRM",
+                  text: isZh
+                    ? "缥雪依赖店主个人记忆和直接互动建立温暖体验，但这种“人脑数据库”难以规模化。"
+                    : "Piaoxue relies on owners’ personal memory and direct interaction to create warmth, but this informal “human-brain database” is difficult to scale.",
+                },
+                {
+                  title: isZh
+                    ? "顾客需求多元，但客户分层不够清晰"
+                    : "Diverse customer needs, but informal segmentation",
+                  text: isZh
+                    ? "不同顾客对健康、口味、分量、价格和新鲜感的期待不同，但品牌尚未形成明确的客户分层策略。"
+                    : "Customers have different expectations for health, taste, portion size, price and novelty, but the brand has not built a clear segmentation strategy.",
+                },
+                {
+                  title: isZh
+                    ? "有反馈来源，但缺少反馈闭环"
+                    : "Feedback exists, but lacks a closed-loop mechanism",
+                  text: isZh
+                    ? "线上评论和直接反馈能够反映问题，但尚未被稳定转化为产品、服务和沟通策略的持续优化。"
+                    : "Online reviews and direct feedback reveal customer problems, but they are not consistently translated into product, service and communication improvements.",
+                },
+              ].map((finding) => (
+                <div
+                  key={finding.title}
+                  className="rounded-sm border border-stone-300 bg-white/60 p-5"
+                >
+                  <h3 className="text-xl font-black leading-tight tracking-[-0.03em] text-stone-900">
+                    {finding.title}
+                  </h3>
+                  <p className="mt-3 text-sm leading-7 text-stone-700">
+                    {finding.text}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-10 rounded-sm border border-stone-300 bg-[#f8f4ee] p-6">
+          <p className="mb-4 text-xs font-semibold uppercase tracking-[0.18em] text-[#e46aa3]">
+            {isZh ? "优化建议" : "Recommendations"}
+          </p>
+
+          <div className="grid gap-4 md:grid-cols-2">
+            {[
+              isZh
+                ? "建立“反馈—行动—沟通”机制：收集顾客反馈后，将其转化为菜单、服务和沟通优化，并向顾客传达改进。"
+                : "Build a feedback-action-communication loop: collect customer feedback, translate it into service or product improvements, and communicate changes back to customers.",
+              isZh
+                ? "优化客户分层：区分忠诚顾客、短期高价值顾客、不满意顾客和偶发顾客，制定差异化维护策略。"
+                : "Refine customer segmentation: distinguish loyal customers, short-term profitable customers, dissatisfied users and occasional customers for targeted CRM actions.",
+              isZh
+                ? "系统化客户信息管理：从依赖个人记忆转向记录顾客偏好、投诉、复购行为和特殊需求。"
+                : "Standardize customer information management: move from personal memory to structured records of preferences, complaints, repeat-purchase behavior and special requests.",
+              isZh
+                ? "建立 CRM 绩效指标：追踪满意度、复购率、推荐意愿、投诉解决率和渠道反馈表现。"
+                : "Define CRM performance metrics: track satisfaction, repeat purchase, recommendation intention, complaint resolution and channel feedback performance.",
+            ].map((rec) => (
+              <p
+                key={rec}
+                className="border-l border-stone-400 pl-4 text-sm leading-7 text-stone-700"
+              >
+                {rec}
+              </p>
+            ))}
+          </div>
+        </div>
+
+        <div className="mt-10">
+          <p className="mb-4 text-xs font-semibold uppercase tracking-[0.18em] text-[#e46aa3]">
+            {isZh ? "项目截图" : "Visual Evidence"}
+          </p>
+
+          <div className="mx-auto grid max-w-5xl gap-6 md:grid-cols-2">
+            {[
+              {
+                src: "/images/crm/piaoxue-swot-stp.jpg",
+                label: isZh ? "SWOT / STP 分析" : "SWOT / STP Analysis",
+              },
+              {
+                src: "/images/crm/piaoxue-customer-types.jpg",
+                label: isZh ? "客户类型分析" : "Customer Type Analysis",
+              },
+            ].map((image) => (
+              <a
+                key={image.src}
+                href={image.src}
+                target="_blank"
+                rel="noreferrer"
+                className="overflow-hidden rounded-sm border border-stone-300 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-md"
+              >
+                <div className="aspect-[4/3] overflow-hidden bg-stone-200">
+                  <img
+                    src={image.src}
+                    alt={image.label}
+                    className="h-full w-full object-cover"
+                  />
+                </div>
+
+                <p className="p-3 text-xs font-semibold uppercase tracking-[0.14em] text-stone-500">
+                  {image.label}
+                </p>
+              </a>
+            ))}
+          </div>
+        </div>
+
+        <div className="mt-8 flex flex-wrap gap-2">
+          {[
+            "User Research",
+            "CRM Analysis",
+            "Customer Segmentation",
+            "Online Review Mining",
+            "SWOT / STP",
+            "Strategy Recommendation",
+          ].map((tag) => (
+            <span
+              key={tag}
+              className="rounded-full border border-stone-300 bg-white/70 px-3 py-1 text-sm text-stone-700"
+            >
+              {tag}
+            </span>
+          ))}
+        </div>
+      </div>
+    </details>
   </PaperCard>
 </section>
         <section id="ai-agent" className="mt-14">
