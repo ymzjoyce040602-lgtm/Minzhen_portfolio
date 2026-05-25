@@ -1703,15 +1703,15 @@ export default function PortfolioWebsite() {
       <div className="grid gap-5 md:grid-cols-3">
         {[
           {
-            src: "/images/crm/piaoxue-swot-stp.jpg",
+            src: "/images/piaoxue-swot-stp.jpg",
             label: isZh ? "SWOT / STP 分析" : "SWOT / STP Analysis",
           },
           {
-            src: "/images/crm/piaoxue-customer-types.jpg",
+            src: "/images/piaoxue-customer-types.jpg",
             label: isZh ? "客户类型分析" : "Customer Type Analysis",
           },
           {
-            src: "/images/crm/piaoxue-recommendations.jpg",
+            src: "/images/piaoxue-recommendations.jpg",
             label: isZh ? "CRM 优化建议" : "CRM Recommendations",
           },
         ].map((image) => (
