@@ -1568,10 +1568,9 @@ export default function PortfolioWebsite() {
           key={item.label}
           className="rounded-sm border border-stone-300 bg-white/60 p-5"
         >
-          <p className="font-['Brush_Script_MT'] text-5xl leading-none text-[#e46aa3]">
-            {item.number}
-          </p>
-
+  <p className="text-5xl md:text-6xl font-black italic tracking-tight leading-none text-[#e46aa3]">
+  {item.number}
+</p>
           <h3 className="mt-4 text-xl font-black uppercase leading-none tracking-[-0.04em] text-stone-900">
             {item.label}
           </h3>
@@ -1700,7 +1699,7 @@ export default function PortfolioWebsite() {
         {isZh ? "项目截图" : "Visual Evidence"}
       </p>
 
-      <div className="grid gap-5 md:grid-cols-3">
+     <div className="mx-auto grid max-w-5xl gap-6 md:grid-cols-2">
         {[
           {
             src: "/images/piaoxue-swot-stp.jpg",
@@ -1710,10 +1709,7 @@ export default function PortfolioWebsite() {
             src: "/images/piaoxue-customer-types.jpg",
             label: isZh ? "客户类型分析" : "Customer Type Analysis",
           },
-          {
-            src: "/images/piaoxue-recommendations.jpg",
-            label: isZh ? "CRM 优化建议" : "CRM Recommendations",
-          },
+      
         ].map((image) => (
           <a
             key={image.src}
