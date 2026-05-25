@@ -1721,11 +1721,11 @@ export default function PortfolioWebsite() {
           <div className="mx-auto grid max-w-5xl gap-6 md:grid-cols-2">
             {[
               {
-                src: "/images/crm/piaoxue-swot-stp.jpg",
+                src: "/images/crm/piaoxue-swot-stp.png",
                 label: isZh ? "SWOT / STP 分析" : "SWOT / STP Analysis",
               },
               {
-                src: "/images/crm/piaoxue-customer-types.jpg",
+                src: "/images/crm/piaoxue-customer-types.png",
                 label: isZh ? "客户类型分析" : "Customer Type Analysis",
               },
             ].map((image) => (
